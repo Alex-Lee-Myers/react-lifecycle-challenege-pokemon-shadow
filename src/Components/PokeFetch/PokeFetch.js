@@ -3,6 +3,12 @@ import './PokeFetch.css';
 
 
 class PokeFetch extends Component {
+//! This is the PokeFetch Lifecycle Challenge. I need to do the following
+//? 1. Create a Timer that counts down from 10 seconds.
+//? 2. Make sure the timer does not start until the "Start" button is clicked.
+//? 3. Make sure the timer does not go into the negatives.
+//? 4. Once the timer reaches 0, the Pokemon image should be undarkened and the name should be displayed.
+//? 5. Restart the game each time the button is pushed without refreshing the page.
   constructor() {
     super()
     this.state = {
