@@ -1,9 +1,69 @@
-.wrapper {
+.PokeFetch {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.start{
+/* .pokeWrap{
+  align-self: flex-start;
+  margin-top: -100px;
+  margin-left: 18vw;
+} */
+
+.pokeImg {
+  width: 500px;
+  height: 500px;
+}
+
+.pokeNameHidden {
+  display: none;
+}
+
+.pokeNameRevealed {
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  color: #f5f5f5;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-top: -100px;
+  margin-left: 18vw;
+}
+
+.pokeSpriteContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pokeSpriteHidden{
+  filter: brightness(0%);
+}
+
+.pokeSpriteRevealed{
+  filter: brightness(100%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.pokeNameContainer {
+
+}
+
+.pokeButtonContainer{
   margin-top: 50px;
   align-self: center;
   width: 300px;
@@ -17,24 +77,7 @@
   border-radius: 10px;
 }
 
-.timer{ 
+.timerContainer{ 
   font-family: 'Press Start 2P', cursive;
   font-size: 3em;
 }
-
-.pokeWrap{
-  align-self: flex-start;
-  margin-top: -100px;
-  margin-left: 18vw;
-}
-
-.pokeImg {
-  width: 500px;
-}
-
-.pokeName {
-  font-family: 'Press Start 2P', cursive;
-  text-transform: uppercase;
-  margin-top: -50px;
-}
-
