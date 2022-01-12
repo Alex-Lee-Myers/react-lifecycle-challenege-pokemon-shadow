@@ -21,8 +21,6 @@ class PokeFetch extends Component {
   //? 3. Make sure the timer does not go into the negatives.
   //? 4. Once the timer reaches 0, the Pokemon image and name should be revealed.
   //? 5. Restart the game each time the button is pushed without refreshing the page.
-  
-
 
   // when start button is clicked, fetchPokemon() is called. Once the fetch is complete, the timer starts and it sets 
   fetchPokemon() {
@@ -42,14 +40,15 @@ class PokeFetch extends Component {
       .catch((err) => console.log(err))
   }
 
-    //! 1. Create a Timer that counts down from 10 seconds. 
+  //! 1. Create a Timer that counts down from 10 seconds. 
     //? a. fetchPokemon() is called and pokemonRevealed is set to false.
-    //? b. sets timerOn to true
+    //? b. sets timerOn to true.
     //? c. sets pokeName and pokeSprite classNames to ".pokeNameHidden" and ".pokeSpriteHidden" until it reaches 0.
     //? d. the timer is set to 0 and the timerOn is set to false.
     //? e. when it reaches 0, pokemonRevealed is set to true.
     //? f. when it reaches 0, the pokeName and pokeSprite classNames are set to ".pokeNameRevealed" and ".pokeSpriteRevealed"
     //? g. the timerInterval is cleared.
+    //? h. hide start button when pressed.
 
   startTimer() {
     this.fetchPokemon()
@@ -79,34 +78,43 @@ class PokeFetch extends Component {
     })
   }
 
-
-
-// true or false return for if timer is or not, and null 
-// if true, then the timer will start and the pokeSprite will set to the className 'pokeSpriteHidden' and pokeName will set to the className 'pokeNameHidden'
-// if false, then the timer will not start and the pokeSprite be set the the className 'pokeSpriteRevealed' and pokeName will be set to classname 'pokeNameRevealed'.
-// else, set pokeSprite and pokeName to null and tell the user to click the start button.
-// 'pokeSpriteHidden' is the default state.
-// 'pokeSpriteRevealed' is the state when the timer has hit 0.
+  // true or false return for if timer is or not, and null.
+  // if true, then the timer will start and the pokeSprite will set to the className 'pokeSpriteHidden' and pokeName will set to the className 'pokeNameHidden'
+  // if false, then the timer will not start and the pokeSprite be set the the className 'pokeSpriteRevealed' and pokeName will be set to classname 'pokeNameRevealed'.
+  // else, set pokeSprite and pokeName to null and tell the user to click the start button.
+  // 'pokeSpriteHidden' is the default state.
+  // 'pokeSpriteRevealed' is the state when the timer has hit 0.
+  // button is hidden with .pokeButtonStyleOff when the timer is running.
+  // button is visible with .pokeButtonStyleOn when the timer is not running.
+  // timer is hidden with .timerHidden when the timer is not running.
+  // timer is visible with .timerVisible when the timer is running.
 
   render() {
     return (
-      <div className="PokeFetch">
-        <div className="pokeSpriteContainer">
-          <img className={this.state.pokemonRevealed ? 'pokeSpriteRevealed' : 'pokeSpriteHidden'} src={this.state.pokeSprite} alt="pokemon sprite" />
-        </div>
-        <div className="pokeNameContainer">
-          <h1 className={this.state.pokemonRevealed ? 'pokeNameRevealed' : 'pokeNameHidden'}>{this.state.pokeName}</h1>
-        </div>
-        <div className="pokeButtonContainer">
-          <button onClick={() => this.startTimer()}>Start</button>
-        </div>
-        <div className="timerContainer">
-          <h1>{this.state.timer}</h1>
-        </div>
+      <div className="allContainer">
+
+          <div className="leftSideScreen">
+            <div className="pokeSpriteContainer">
+              <img className={this.state.pokemonRevealed ? 'pokeSpriteRevealed' : 'pokeSpriteHidden'} src={this.state.pokeSprite} alt="pokemon sprite" />
+            </div>
+            <div className="pokeNameContainer">
+              <h1 className={this.state.pokemonRevealed ? 'pokeNameRevealed' : 'pokeNameHidden'}>{this.state.pokeName}</h1>
+            </div>
+          </div>
+
+
+          <div className="ButtonTimerSwitcher">
+            <div className="pokeButtonContainer">
+              <button className={this.state.timerOn ? 'pokeButtonStyleOff' : 'pokeButtonStyleOn'} onClick={() => this.startTimer()}>Start</button>
+            </div>
+            <div className="timerContainer">
+              <h1 className={this.state.timerOn ? 'timerVisible' : 'timerHidden'}>{this.state.timer}</h1>
+            </div>
+          </div>
+
       </div>
     )
   }
 }
-  
 
 export default PokeFetch;
