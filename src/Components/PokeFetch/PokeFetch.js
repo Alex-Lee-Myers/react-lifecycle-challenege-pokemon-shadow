@@ -51,6 +51,7 @@ class PokeFetch extends Component {
     //? h. hide start button when pressed.
 
   startTimer() {
+    clearInterval(this.state.timerInterval)
     this.fetchPokemon()
     this.setState({
       timerOn: true,
@@ -72,7 +73,6 @@ class PokeFetch extends Component {
           this.setState({
             timerOn: false,
           })
-          clearInterval(this.state.timerInterval)
         }
       }, 1000)
     })

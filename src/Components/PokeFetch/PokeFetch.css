@@ -1,19 +1,25 @@
 /* CSS Grid */
 .allContainer {
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
-  justify-items: center;
-  justify-content: center;
-  align-content: center;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 /* put .leftSideScreen centered on half the screen */
 .leftSideScreen{
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.pokeNameContainer {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .pokeNameHidden {
@@ -28,28 +34,31 @@
 }
 
 .pokeSpriteContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "pokeSprite pokeSprite"
-    "pokeSprite pokeSprite";
-
+  z-index: 3;
+  width: 500px;
+  margin-top: -50px;
+  position: relative;
 }
 
 .pokeSpriteHidden{
   filter: brightness(0%);
-  width: 400px;
+
 }
 
 .pokeSpriteRevealed{
   filter: brightness(100%);
-  width: 400px;
+
 }
 
 /* Put .ButtonTimerSwitcher at top of screen centered */
 .ButtonTimerSwitcher{
-  flex: auto;
-  grid-column: 1 / 3;
+  position: absolute;
+  top: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .pokeButtonContainer{
@@ -74,10 +83,14 @@
 
 /* Put .timerVisible on top of .pokeButtonStyleOn */
 .timerVisible{
-  grid-column: 1 / 3;
-  grid-row: 2 / 3;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-family: 'Press Start 2P', cursive;
   font-size: 3em;
+  margin-top: -550px;
 }
 
 .pokeButtonStyleOff{
